@@ -1,0 +1,335 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+typedef struct Student{
+    char name [20];
+    int age;
+    float height;
+}Student;
+
+typedef struct Node{
+    char name [20];
+    int age;
+    float height;
+}Student;
+
+
+int main()
+{
+
+    int n;
+    Student student;
+    scanf("%d", &n);
+
+    for(int i =0; i< n; i++){
+        scanf("%s",student.name);
+        fflush(stdin);
+        scanf("%s",student.age);
+        fflush(stdin);
+        scanf("%s",student.height);
+        fflush(stdin);
+
+
+
+
+    }
+}
+
+
+struct Node{
+
+     int data;
+     struct Node* next;
+     struct Node* prev;
+
+};
+
+    typedef struct Node Node;
+    Node* head;
+
+    getNewNode (int x){
+    Node* newNode = (Node*)malloc(sizeof(Node));
+
+    newNode -> data = x;
+    newNode -> next = NULL;
+    newNode -> prev = NULL;
+
+    return newNode;
+    }
+
+
+  void insertAtBegin(Student x){
+    Node* newNode = getNewNode(x);
+    newNode -> data = x;
+    if(head == NULL){
+        head = newNode;
+        return ;
+    }
+
+    newNode -> next =head;
+    head -> prev = newNode;
+    head = newNode;
+
+  }
+    void insertAtEnd(Student x){
+    Node* newNode = getNewNode(x);
+    newNode -> data = x;
+    if(head==NULL){
+        head = newNode;
+        return ;
+    }
+
+    Node* temp = head;
+    while (temp -> next  != NULL){
+
+         temp= temp -> next;
+    }
+
+    temp -> next = newNode;
+    newNode -> prev = temp;
+
+
+    }
+
+    void reversePrint(){
+        Node* temp = head;
+        if(head==NULL){
+            printf("Linked list is empty\n");
+            return 0;
+        }
+
+        Node* temp = head;
+        printf("Forward: ");
+        while(temp != NULL)
+            printf("%s\t %i\t%.2f\n", temp->student.name, temp ->student.age, temp ->student.height);
+            temp = temp -> next;
+
+        while(temp != NULL){
+            printf("%i->", temp -> data);
+            temp = temp -> next;
+        }
+        printf("NULL\n");
+    }
+
+int main()
+{
+
+       print();
+       reversePrint();
+
+       insertAtEnd(3);
+       print();
+
+       insertAtEnd (5);
+       print();
+       reversePrint();
+
+       insertAtEnd(5);
+       insertAtEnd(8);
+       print();
+       reversePrint();
+
+
+       insertAtBegin(2);
+       insertAtEnd(-45);
+       print();
+       reversePrint();
+
+    return 0;
+}
+
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Student {
+    char name[20];
+    int age;
+    float height;
+} Student;
+
+typedef struct Node {
+    Student student;
+    struct Node* next;
+    struct Node* prev;
+} Node;
+
+Node* head;
+
+Node* getNewNode(Student x) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->student = x;
+    newNode->next = NULL;
+    newNode->prev = NULL;
+    return newNode;
+}
+
+void insertAtBegin(Student x) {
+    Node* newNode = getNewNode(x);
+    if (head == NULL) {
+        head = newNode;
+        return;
+    }
+    newNode->next = head;
+    head->prev = newNode;
+    head = newNode;
+}
+
+void insertAtEnd(Student x) {
+    Node* newNode = getNewNode(x);
+    if (head == NULL) {
+        head = newNode;
+        return;
+    }
+    Node* temp = head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+    newNode->prev = temp;
+}
+
+void print() {
+    Node* temp = head;
+    printf("Forward:\n");
+    while (temp != NULL) {
+        printf("%s\t%i\t%.2f\n", temp->student.name, temp->student.age, temp->student.height);
+        temp = temp->next;
+    }
+    printf("\n");
+}
+
+void reversePrint() {
+    Node* temp = head;
+    printf("Reverse:\n");
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    while (temp != NULL) {
+        printf("%s\t%i\t%.2f\n", temp->student.name, temp->student.age, temp->student.height);
+        temp = temp->prev;
+    }
+    printf("\n");
+}
+
+int main() {
+    int n;
+    printf("Enter the number of students: ");
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++) {
+        Student student;
+        printf("Enter name, age, and height for student %d:\n", i + 1);
+        scanf("%s%d%f", student.name, &student.age, &student.height);
+        insertAtEnd(student);
+    }
+
+    printf("\nList of students:\n");
+    print();
+
+    printf("\nList of students in reverse:\n");
+    reversePrint();
+
+    return 0;
+}
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Student {
+    char name[20];
+    int age;
+    float height;
+} Student;
+
+typedef struct Node {
+    Student student;
+    struct Node* next;
+    struct Node* prev;
+} Node;
+
+Node* head;
+
+Node* getNewNode(Student x) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->student = x;
+    newNode->next = NULL;
+    newNode->prev = NULL;
+    return newNode;
+}
+
+void insertAtBegin(Student x) {
+    Node* newNode = getNewNode(x);
+    if (head == NULL) {
+        head = newNode;
+        return;
+    }
+    newNode->next = head;
+    head->prev = newNode;
+    head = newNode;
+}
+
+void insertAtEnd(Student x) {
+    Node* newNode = getNewNode(x);
+    if (head == NULL) {
+        head = newNode;
+        return;
+    }
+    Node* temp = head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+    newNode->prev = temp;
+}
+
+void print() {
+    Node* temp = head;
+    printf("Student Information (Forward):\n");
+    while (temp != NULL) {
+        printf("%s\t%i\t%.2f\n", temp->student.name, temp->student.age, temp->student.height);
+        temp = temp->next;
+    }
+    printf("\n");
+}
+
+void reversePrint() {
+    Node* temp = head;
+    printf("Student Information (Reverse):\n");
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    while (temp != NULL) {
+        printf("%s\t%i\t%.2f\n", temp->student.name, temp->student.age, temp->student.height);
+        temp = temp->prev;
+    }
+    printf("\n");
+}
+
+int main() {
+    int n;
+    printf("Enter the number of students: ");
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++) {
+        Student student;
+        printf("Enter name, age, and height for student %d (separated by spaces): ", i + 1);
+        scanf("%s %d %f", student.name, &student.age, &student.height);
+        insertAtEnd(student);
+    }
+
+    printf("\nList of students:\n");
+    print();
+
+    printf("\nList of students in reverse:\n");
+    reversePrint();
+
+    return 0;
+}

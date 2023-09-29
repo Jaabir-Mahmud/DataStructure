@@ -1,0 +1,167 @@
+//lab class 21/08/23 (node creation using loop and function)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+typedef struct Node Node;
+
+
+void insertAtEnd(Node* temp, int data) {
+    Node* lastNode = (Node*)malloc(sizeof(Node));
+    lastNode->data = data;
+    lastNode->next = NULL;
+
+    while(temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = lastNode;
+}
+
+void printList(Node* temp) {
+    while(temp != NULL) {
+        printf("%i->", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+int main()
+{
+    Node* first = (Node*)malloc(sizeof(Node));
+    Node* second = (Node*)malloc(sizeof(Node));
+    Node* third = (Node*)malloc(sizeof(Node));
+
+    first->data = 5;
+    first->next = second;
+
+    second->data = 7;
+    second->next = third;
+
+    third->data = 9;
+    third->next = NULL;
+
+    Node* head = first;
+    printList(head);
+    return 0;
+}
+
+
+
+
+//link list for large number of node
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+typedef struct Node Node;
+
+Node* createNode(Node* temp, int data) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = data;
+    newNode->next = NULL;
+    return newNode;
+}
+
+void insertAtEnd(Node* temp, int data) {
+    Node* lastNode = (Node*)malloc(sizeof(Node));
+    lastNode->data = data;
+    lastNode->next = NULL;
+
+    while(temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = lastNode;
+}
+
+void printList(Node* temp) {
+    while(temp != NULL) {
+        printf("%i->", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+int main()
+{
+    Node* head = NULL;
+    head = createNode(head, 5);
+    printList(head);
+    createNode(head, 5);
+
+
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+typedef struct Node Node;
+
+Node* createNode(Node* temp, int data) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = data;
+    newNode->next = NULL;
+    return newNode;
+}
+
+void insertAtBegin(Node** head, int data) {
+    Node* firstNode = (Node*)malloc(sizeof(Node));
+    firstNode->data = data;
+    firstNode->next=*head;
+    *head=firstNode;
+
+}
+int insertAtEnd(Node* temp, int data) {
+    Node* lastNode = (Node*)malloc(sizeof(Node));
+    lastNode->data = data;
+    lastNode->next = NULL;
+
+    while(temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = lastNode;
+}
+
+void printList(Node* temp) {
+    while(temp != NULL) {
+        printf("%i->", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+int main()
+{
+    Node* head = NULL;
+    head = createNode(head, 5);
+    printf("List is: ");
+    printList(head);
+
+    insertAtEnd(head,6);
+    insertAtEnd(head,7);
+    insertAtEnd(head,8);
+    printf("List is: ");
+    printList(head);
+
+    insertAtBegin(&head,40);
+    printf("List is: ");
+    printList(head);
+
+    return 0;
+}
+

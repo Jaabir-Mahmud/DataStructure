@@ -1,0 +1,162 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Student {
+    int age;
+    char name[20];
+    char section;
+} SS;
+
+void clear_buffer() {
+    while (getchar() != '\n');
+}
+
+int main() {
+    SS ar[3];
+
+    for (int i = 0; i < 3; i++) {
+
+        printf("Enter name: ");
+        scanf("%19[^\n]", ar[i].name);
+        clear_buffer();
+        printf("Enter section: ");
+        scanf(" %c", &ar[i].section);
+         clear_buffer();
+        printf("Enter age: ");
+        scanf("%d", &ar[i].age);
+         clear_buffer();
+    }
+
+    for (int j = 0; j < 3; j++) {
+        printf("Name: %s\n", ar[j].name);
+        printf("Section: %c\n", ar[j].section);
+        printf("Age: %d\n", ar[j].age);
+    }
+
+    return 0;
+}
+
+
+
+
+
+#include<stdio.h>
+#include <stdlib.h>
+struct Student {
+    char name[20];
+    char section;
+    int age;
+    float height;
+};
+
+void clear_buffer() {
+while (getchar() != '\n');
+}
+
+int main() {
+
+struct Student ar[3];
+
+for(int i = 0; i<1; i++) {
+    clear_buffer();
+    scanf("%[^\n]s",ar[i].name);
+    clear_buffer();
+    scanf("%c", &ar[i].section);
+    clear_buffer();
+    scanf("%d", &ar[i].age);
+    clear_buffer();
+    scanf("%f",&ar[i].height);
+}
+for(int j = 0; j<1; j++) {
+    printf("%s",ar[j].name);
+    printf("%c", ar[j].section);
+    printf("%d", ar[j].age);
+     printf("%f", ar[j].height);
+   
+}
+
+return 0;
+
+}
+
+
+
+#include <stdio.h>
+
+typedef struct Student {
+
+    char name[20];
+
+    int age;
+
+    char section;
+
+}Student;
+
+void clear_buffer() {
+
+    char ch;
+
+    while((ch = getchar()) != '\n');
+
+}
+
+int main()
+
+{
+
+    int n;
+
+    printf("Enter the number of students:\n");
+
+    scanf("%d", &n);
+
+    clear_buffer();
+
+    Student *s = (Student*) calloc(n, sizeof(Student));
+
+    for(int i = 0; i < n; i++) {
+
+        printf("Enter information for student %d:\n", i + 1);
+
+        printf("Enter Name: ");
+
+        scanf("%[^\n]s", s[i].name);
+
+        clear_buffer();
+
+        printf("Enter Age: ");
+
+        scanf("%d", &s[i].age);
+
+        clear_buffer();
+
+        printf("Enter Section: ");
+
+        scanf("%c", &s[i].section);
+
+        clear_buffer();
+
+        printf("\n");
+
+    }
+
+    printf("\n\n<-------------Student Information------------->\n");
+
+    for(int i = 0; i < n; i++) {
+
+        printf("Student %d Name: %s\n", i+1, s[i].name);
+
+        printf("Student %d Age: %d\n", i+1, s[i].age);
+
+        printf("Student %d Section: %d\n", i+1, s[i].section);
+
+        printf("\n");
+
+    }
+
+    return 0;
+
+}
+
+
